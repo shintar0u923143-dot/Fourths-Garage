@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Car Garage Kids: F1 & Drag Race</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- MENU -->
+  <section id="menu" class="screen active">
+    <h1 class="logo">CAR GARAGE<span>KIDS</span></h1>
+    <p class="tagline">Pick a mode, build your car, go!</p>
+    <div class="menu-buttons">
+      <button class="big-btn red" data-go="garage" data-mode="f1">🏁 F1 Race</button>
+      <button class="big-btn blue" data-go="garage" data-mode="drag">🚦 Drag Race</button>
+      <button class="big-btn grey" data-go="garage" data-mode="garage">🔧 Just Build</button>
+    </div>
+  </section>
+
+  <!-- GARAGE -->
+  <section id="garage" class="screen">
+    <header class="topbar">
+      <button class="back" data-go="menu">← Back</button>
+      <h2 id="garage-title">Garage</h2>
+      <span></span>
+    </header>
+    <div class="car-picker" id="car-picker"></div>
+    <div class="preview">
+      <canvas id="preview-canvas" width="520" height="260"></canvas>
+    </div>
+    <div class="custom-panel">
+      <div class="custom-row">
+        <label>Paint</label>
+        <div class="swatches" id="paint-swatches"></div>
+      </div>
+      <div class="custom-row">
+        <label>Stripe</label>
+        <div class="swatches" id="stripe-swatches"></div>
+      </div>
+      <div class="custom-row">
+        <label>Wheels</label>
+        <div class="options" id="wheel-options"></div>
+      </div>
+      <div class="custom-row">
+        <label>Spoiler</label>
+        <div class="options" id="spoiler-options"></div>
+      </div>
+      <div class="custom-row">
+        <label>Sticker</label>
+        <div class="options" id="sticker-options"></div>
+      </div>
+    </div>
+    <div class="garage-actions">
+      <button class="big-btn green" id="start-btn">START ▶</button>
+    </div>
+  </section>
+
+  <!-- F1 RACE -->
+  <section id="f1" class="screen">
+    <header class="topbar">
+      <button class="back" data-go="garage">← Garage</button>
+      <h2>F1 Race</h2>
+      <span id="f1-lap">Lap 1/3</span>
+    </header>
+    <canvas id="f1-canvas" width="900" height="540"></canvas>
+    <div class="hud">
+      <div class="speed"><span id="f1-speed">0</span> km/h</div>
+      <div class="pos" id="f1-pos">Pos 1/4</div>
+      <div class="timer" id="f1-timer">0.0s</div>
+    </div>
+    <div class="controls" id="f1-controls">
+      <button class="ctl" data-key="left">◀</button>
+      <button class="ctl gas" data-key="gas">GAS ▲</button>
+      <button class="ctl" data-key="right">▶</button>
+    </div>
+    <div class="overlay" id="f1-overlay">
+      <div class="card">
+        <h3 id="f1-overlay-title">Ready?</h3>
+        <p id="f1-overlay-text">Hold GAS to go. Keep on the track!</p>
+        <button class="big-btn green" id="f1-go">Let's Go!</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- DRAG RACE -->
+  <section id="drag" class="screen">
+    <header class="topbar">
+      <button class="back" data-go="garage">← Garage</button>
+      <h2>Drag Race</h2>
+      <span id="drag-round">Run 1</span>
+    </header>
+    <canvas id="drag-canvas" width="900" height="420"></canvas>
+    <div class="tree" id="tree">
+      <div class="light" data-l="0"></div>
+      <div class="light" data-l="1"></div>
+      <div class="light" data-l="2"></div>
+    </div>
+    <div class="hud">
+      <div class="timer" id="drag-time">0.000s</div>
+      <div class="speed"><span id="drag-speed">0</span> km/h</div>
+      <div class="pos" id="drag-result"></div>
+    </div>
+    <div class="controls">
+      <button class="ctl gas big" id="drag-gas">HOLD TO GO</button>
+    </div>
+    <div class="overlay" id="drag-overlay">
+      <div class="card">
+        <h3>Drag Race!</h3>
+        <p>Wait for GREEN, then HOLD the button. Let go at the finish line to stop the timer.</p>
+        <button class="big-btn green" id="drag-start">Ready</button>
+      </div>
+    </div>
+  </section>
+
+  <script src="js/cars.js"></script>
+  <script src="js/paint.js"></script>
+  <script src="js/f1.js"></script>
+  <script src="js/drag.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
